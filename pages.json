@@ -1,0 +1,122 @@
+{
+	"pages": [	
+		{
+			"path": "pages/tabbar/tabbar-1/tabbar-1",
+			"style": {
+				"app-plus": {"titleNView": false} 
+			}
+		},
+		{
+			"path": "pages/tabbar/tabbar-2/tabbar-2",
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/tabbar/tabbar-3/tabbar-3",
+			"style": {
+				"navigationBarTitleText": "扫一扫"
+			}
+		},
+		{
+			"path": "pages/tabbar/tabbar-4/tabbar-4",
+			"style": {
+				"navigationBarTitleText": "通讯录"
+			}
+		},
+		{
+			"path": "pages/tabbar/tabbar-5/tabbar-5",
+			"style": {
+				"app-plus": {"titleNView": false} 
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/sub_page/sjsb/sjsb",
+			"style": {
+				"navigationBarTitleText": "事件上报"
+			}
+		},
+		{
+			"path": "pages/sub_page/sjgl/sjgl",
+			"style": {
+				"navigationBarTitleText": "事件管理"
+			}
+		},
+		{
+			"path": "pages/sub_page/jrdb/jrdb",
+			"style": {
+				"navigationBarTitleText": "今日待办"
+			}
+		},
+		{
+			"path": "pages/sub_page/tjfx/tjfx",
+			"style": {
+				"navigationBarTitleText": "统计分析"
+			}
+		},
+		{
+			"path": "pages/more/more",
+			"style": {
+				"navigationBarTitleText": "更多"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "#ffffff",
+		"navigationBarTitleText": "电力巡检",
+		"navigationBarBackgroundColor": "#2b8cf9",
+		"backgroundColor": "#2b8cf9"
+	},
+	"tabBar": {
+		"borderStyle": "#000000",
+		"backgroundColor": "#FFFFFF",
+		"color": "#999999",
+		"selectedColor": "#2b8cf9",
+		"list": [{
+				"pagePath": "pages/tabbar/tabbar-1/tabbar-1",
+				"iconPath": "static/img/tabbar/home.png",
+				"selectedIconPath": "static/img/tabbar/home-active.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/tabbar/tabbar-2/tabbar-2",
+				"iconPath": "static/img/tabbar/message.png",
+				"selectedIconPath": "static/img/tabbar/message-active.png",
+				"text": "消息"
+			},
+			//#ifdef MP-WEIXIN
+			{
+				"pagePath": "pages/tabbar/tabbar-3/tabbar-3",
+				"iconPath": "static/img/tabbar/scan.png",
+				"selectedIconPath": "static/img/tabbar/scan-active.png",
+				"text": "扫一扫"
+			},
+			//#endif
+			//#ifndef MP-WEIXIN
+			{
+				"pagePath": "pages/tabbar/tabbar-3/tabbar-3",
+				"iconPath": "static/img/tabbar/scan.png",
+				"selectedIconPath": "static/img/tabbar/scan-active.png"
+			},
+			//#endif
+			{
+				"pagePath": "pages/tabbar/tabbar-4/tabbar-4",
+				"iconPath": "static/img/tabbar/contact.png",
+				"selectedIconPath": "static/img/tabbar/contact-active.png",
+				"text": "通讯录"
+			},
+			{
+				"pagePath": "pages/tabbar/tabbar-5/tabbar-5",
+				"iconPath": "static/img/tabbar/me.png",
+				"selectedIconPath": "static/img/tabbar/me-active.png",
+				"text": "我的"
+			}
+		]
+	}
+}

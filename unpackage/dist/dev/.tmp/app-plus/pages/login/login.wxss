@@ -1,0 +1,27 @@
+
+.content{
+	margin-top: 0;
+}
+.login_content{
+	padding: 0 30rpx;
+}
+.input-content{
+	padding: 0 30rpx;
+}
+.input-content .uni-input-row{
+	border: 1px solid #DCDCDC;
+	border-radius: 10rpx;
+	margin: 30rpx 0;
+	height: 40rpx !important;
+	line-height: 40rpx!important;
+}
+.code_img{
+	position: absolute;
+	right: 12rpx;
+	top: 8rpx;
+	width: 160rpx;
+	height: 70rpx;
+	border-radius: 6rpx;
+	background-color: red;
+}
+

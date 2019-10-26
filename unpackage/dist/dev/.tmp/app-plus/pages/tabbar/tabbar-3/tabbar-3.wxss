@@ -1,0 +1,7 @@
+
+.content{
+	padding: 300rpx 30rpx 0 30rpx;
+	height: 100%;
+}
+
+

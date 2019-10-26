@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"content{ padding: ",[0,300]," ",[0,30]," 0 ",[0,30],"; height: 100%; }\n",],undefined,{path:"./pages/tabbar/tabbar-3/tabbar-3.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/tabbar/tabbar-3/tabbar-3.wxml') } }));
