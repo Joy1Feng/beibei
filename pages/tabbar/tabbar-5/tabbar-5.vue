@@ -2,8 +2,9 @@
 	<view class="content">
 		<!-- <navigator url="pages/login/login" open-type="navigate"> -->
 			<view class="profile" @tap="toLogin">
-				<image src="../../../static/img/profile.png" mode="" class="profile_img"></image>
-				<span class="login">请登录</span>
+				<image src="../../../static/img/profile.png" mode="" class="profile_img" style="margin-right: 60upx;"></image>
+				<span class="login" v-if="username">{{username}}, 你好</span>
+				<span class="login" v-else>请登录</span>
 				<span class="iconfont icon-iconfontjiantou3"></span>
 			</view>
 		<!-- </navigator> -->
@@ -38,17 +39,26 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				username: '',
 			}
 		},
 		onLoad() {
-
+			var that = this;
+			uni.getStorage({
+			    key: 'user',
+			    success: function (res) {
+			       that.username = JSON.parse(res.data).user.nickName
+			    }
+			});
 		},
 		methods: {
 			toLogin: function(){
-				uni.navigateTo({
-					url:'../../login/login'
-				})
+				if (!this.username) {
+					uni.navigateTo({
+						url:'../../login/login'
+					})	
+				}
 			}
 		}
 	}
@@ -82,7 +92,7 @@
 
 	.login {
 		font-size: 32upx;
-		margin-left: -380upx;
+		margin-left: -300upx;
 	}
 
 	.icon {

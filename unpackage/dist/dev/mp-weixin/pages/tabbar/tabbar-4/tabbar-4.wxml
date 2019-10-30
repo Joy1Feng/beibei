@@ -1,0 +1,1 @@
+<view><block wx:if="{{list.length===0}}"><uni-load-more vue-id="1" status="loading" content-text="{{contentText}}" color="#007aff" bind:__l="__l"></uni-load-more></block><block wx:else><uni-indexed-list vue-id="2" options="{{list}}" show-select="{{false}}" data-event-opts="{{[['^click',[['bindClick']]]]}}" bind:click="__e" bind:__l="__l"></uni-indexed-list></block></view>

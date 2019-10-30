@@ -7,10 +7,10 @@
 					<t-th>巡检点名称</t-th>
 					<t-th align="right">状态</t-th>
 				</t-tr>
-				<t-tr v-for="(item, index) in tableList" :key="item.id" :class="{border_bottom: index !== tableList.length-1}">
-					<t-td align="left" style="padding-left: 30upx;">{{ item.id + 1 }}</t-td>
-					<t-td>{{ item.name }}</t-td>
-					<t-td align="right" style="padding-right: 18upx;">{{ item.age }}</t-td>
+				<t-tr v-for="(item, index) in tableList" :key="index" :class="{border_bottom: index !== tableList.length-1}">
+					<t-td align="left" style="padding-left: 30upx;">{{ index + 1 }}</t-td>
+					<t-td>{{ item.poleInformation.name }}</t-td>
+					<t-td align="right" style="padding-right: 18upx;">{{item.status}}</t-td>
 				</t-tr>
 			</t-table>
 		</view>
@@ -33,115 +33,12 @@
 		data() {
 			return {
 				title: 'Hello',
-				tableList: [{
-						id: 0,
-						name: '张三',
-						age: '19',
-						hobby: '游泳'
-					},
-					{
-						id: 1,
-						name: '李四',
-						age: '21',
-						hobby: '绘画'
-					},
-					{
-						id: 2,
-						name: '王二',
-						age: '29',
-						hobby: '滑板'
-					},
-					{
-						id: 3,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},
-					{
-						id: 4,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 5,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 6,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 7,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 8,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 9,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 10,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 11,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 12,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					},{
-						id: 13,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					}
-					,{
-						id: 14,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					}
-					,{
-						id: 15,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					}
-					,{
-						id: 16,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					}
-					,{
-						id: 17,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					}
-					,{
-						id: 18,
-						name: '码字',
-						age: '20',
-						hobby: '蹦极'
-					}
-				]
+				tableList: []
 			};
 		},
-		onLoad() {},
+		onLoad(option) {
+			this.tableList = JSON.parse(option.data)
+		},
 		methods: {
 			change(e) {
 				console.log(e.detail);

@@ -1,1 +1,1 @@
-<view class="content"><view class="uni-btn-v"><button type="primary" data-event-opts="{{[['tap',[['scan',['$event']]]]]}}" bindtap="__e">扫一扫</button></view></view>
+<view class="content"><view>{{title}}</view><view class="uni-btn-v"><button type="primary" data-event-opts="{{[['tap',[['scan',['$event']]]]]}}" bindtap="__e">扫一扫</button></view></view>

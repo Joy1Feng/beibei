@@ -10,7 +10,8 @@
     "pages/sub_page/sjgl/sjgl",
     "pages/sub_page/jrdb/jrdb",
     "pages/sub_page/tjfx/tjfx",
-    "pages/more/more"
+    "pages/more/more",
+    "pages/sub_page/wxjl/wxjl"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -54,6 +55,9 @@
         "text": "我的"
       }
     ]
+  },
+  "networkTimeout": {
+    "request": 6000
   },
   "nvueCompiler": "weex",
   "renderer": "auto",

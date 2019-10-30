@@ -1,5 +1,6 @@
 <template>
 	<view class="content">
+		<view>{{title}}</view>
 		<view class="uni-btn-v">
 			<button type="primary" @click="scan">扫一扫</button>
 		</view>
@@ -7,15 +8,18 @@
 </template>
 <script>
 	import permision from "../../../common/permission.js"
+	import {erweimaRequest} from '../../../api/ajax.js'
 	export default {
 		data() {
 			return {
 				title: 'scanCode',
-				result: ''
 			}
+		},
+		onLoad() {
 		},
 		methods: {
 			async scan() {
+				var that = this
 				// #ifdef APP-PLUS
 				let status = await this.checkPermission();
 				if (status !== 1) {
@@ -24,10 +28,62 @@
 				// #endif
 				uni.scanCode({
 					success: (res) => {
-						this.result = res.result
-						uni.navigateTo({
-							url: '../../sub_page/sjsb/sjsb'
+						var role = null
+						uni.getStorage({
+						    key: 'user',
+						    success: function (res) {
+						       role = JSON.parse(res.data).userRole
+						    }
+						});
+						erweimaRequest(res.result).then(res1 => {
+							if(!res1.id) {
+								if (role === 1) {
+									if (!res1.poleInformation) {
+										uni.navigateTo({
+											url: '../../sub_page/sjsb/sjsb?type=1&code=' + res.result,								
+										})
+									} else {
+										uni.navigateTo({
+											url: '../../sub_page/sjsb/sjsb?type=2&noid=' + JSON.stringify(res1),								
+										})
+									}
+									
+								} else if (role === 2) {
+									uni.showToast({
+										title: '没有故障信息',
+										duration: 2000,
+										icon: 'none'
+									})
+									uni.switchTab({
+									    url: '../tabbar-1/tabbar-1'
+									});
+									// uni.navigateTo({
+									// 	url: '../../sub_page/wxjl/wxjl?data=' + JSON.stringify(res1.data)
+									// })
+								} else {
+									uni.navigateTo({
+										url: '../../sub_page/sjsb/sjsb'
+									})
+								}
+							} else {
+								if (role === 1) {
+									uni.navigateTo({
+										url: '../../sub_page/sjsb/sjsb?type=3&info=' + JSON.stringify(res1),								
+									})
+								} else if (role === 2) {
+									this.title = JSON.stringify(res1)
+									uni.navigateTo({
+										url: '../../sub_page/wxjl/wxjl?data=' + JSON.stringify(res1)
+									})
+								} else {
+									uni.navigateTo({
+										url: '../../sub_page/sjsb/sjsb'
+									})
+								}
+							}
 						})
+						
+									
 					},
 					fail: (err) => {
 						// #ifdef MP

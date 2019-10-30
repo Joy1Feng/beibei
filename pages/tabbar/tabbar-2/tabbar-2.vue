@@ -1,20 +1,13 @@
 <template>
-	<view>
-		<uni-swipe-action :options="options2" @click="bindClick">
-			<view class="cont">
-				<view class="title">缩略图居右</view>
-				<view class="uni-list">
-					<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(value,key) in list" :key="key">
-						<view class="uni-media-list uni-pull-right">
-							<view class="uni-media-list-logo">
-								<image v-if="showImg" :src="value.img"></image>
-							</view>
-							<view class="uni-media-list-body">
-								<view class="uni-media-list-text-top">{{value.title}}</view>
-								<view class="uni-media-list-text-bottom uni-ellipsis">{{value.content}}</view>
-							</view>
-						</view>
-					</view>
+	<view class="content">
+		<uni-load-more status="loading" :content-text="contentText" color="#007aff" v-if="!messages.length"/>
+		<uni-swipe-action v-else :options="options2" @click="bindClick" v-for="(item, index) in messages" :key="index">
+			<view class="message_item">
+				<span class="message_person">{{item.rolename}}</span>
+				<view class="message_info">{{item.content}}</view>
+				<view class="status">
+					<span style="margin: 0 10upx;color: #2B8CF9;">已读</span>
+					<span style="color: #999999;">未读</span>
 				</view>
 			</view>
 		</uni-swipe-action>
@@ -25,14 +18,19 @@
 	import uniSwipeAction from '../../../components/uni-swipe-action/uni-swipe-action.vue'
 	import uniList from '../../../components/uni-list/uni-list.vue'
 	import uniListItem from '../../../components/uni-list-item/uni-list-item.vue'
+	import uniLoadMore from '../../..//components/uni-load-more/uni-load-more.vue'
 	export default {
 		components: {
 			uniSwipeAction,
 			uniList,
-			uniListItem
+			uniListItem,
+			uniLoadMore
 		},
 		data() {
 			return {
+				contentText: {
+					contentrefresh: '加载中...',
+				},
 				isOpened: false,
 				options2: [{
 					text: '取消',
@@ -46,28 +44,35 @@
 					}
 				}],
 				showImg: false,
-				list: [{
-						title: "幸福",
-						content: "能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？",
-						img: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png"
-					},
-					{
-						title: "木屋",
-						content: "想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖。",
-						img: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png"
-					},
-					{
-						title: "CBD",
-						content: "烤炉模式的城，到黄昏，如同打翻的调色盘一般。",
-						img: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png"
-					}
-				]
+				messages: []
 			}
 		},
 		onReady() {
 			this.$nextTick(() => {
 				this.isOpened = true
 			})
+		},
+		onLoad() {
+			var that = this
+			setTimeout(function() {
+				var res = [
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'},
+					{rolename: '张三', content: '中国短发接电费看见爱上的看法绝对是'}
+				]
+				that.messages = res
+			}, 2000)
 		},
 		methods: {
 			bindClick(e) {
@@ -200,5 +205,28 @@
 		border: 1px solid #E7E7E7;
 		padding: 8upx 16upx;
 		border-radius: 8upx;
+	}
+	.message_item{
+		height: 80upx;
+		position: relative;
+		border-bottom: 1px solid #DBDBDB;
+		padding: 10upx 30upx 20upx 30upx;
+	}
+	.message_item .message_person{
+		font-size: 32upx;
+	}
+	.message_item .message_info{
+		color: #999999;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		padding-right: 150upx;
+	}
+	.status{
+		position: absolute;
+		right: 30upx;
+		top: 32upx;
+	}
+	.content{
 	}
 </style>

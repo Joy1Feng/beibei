@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/tabbar/tabbar-1/tabbar-1",
+    "pages/tabbar/tabbar-2/tabbar-2",
+    "pages/tabbar/tabbar-3/tabbar-3",
+    "pages/tabbar/tabbar-4/tabbar-4",
+    "pages/tabbar/tabbar-5/tabbar-5",
+    "pages/login/login",
+    "pages/sub_page/sjsb/sjsb",
+    "pages/sub_page/sjgl/sjgl",
+    "pages/sub_page/jrdb/jrdb",
+    "pages/sub_page/tjfx/tjfx",
+    "pages/more/more"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "电力巡检",
+    "navigationBarBackgroundColor": "#2b8cf9",
+    "backgroundColor": "#2b8cf9"
+  },
+  "tabBar": {
+    "borderStyle": "#000000",
+    "backgroundColor": "#FFFFFF",
+    "color": "#999999",
+    "selectedColor": "#2b8cf9",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/tabbar-1/tabbar-1",
+        "iconPath": "static/img/tabbar/home.png",
+        "selectedIconPath": "static/img/tabbar/home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-2/tabbar-2",
+        "iconPath": "static/img/tabbar/message.png",
+        "selectedIconPath": "static/img/tabbar/message-active.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-3/tabbar-3",
+        "iconPath": "static/img/tabbar/scan.png",
+        "selectedIconPath": "static/img/tabbar/scan-active.png",
+        "text": "扫一扫"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-4/tabbar-4",
+        "iconPath": "static/img/tabbar/contact.png",
+        "selectedIconPath": "static/img/tabbar/contact-active.png",
+        "text": "通讯录"
+      },
+      {
+        "pagePath": "pages/tabbar/tabbar-5/tabbar-5",
+        "iconPath": "static/img/tabbar/me.png",
+        "selectedIconPath": "static/img/tabbar/me-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

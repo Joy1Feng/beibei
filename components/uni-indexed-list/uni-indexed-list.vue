@@ -9,7 +9,7 @@
 							<view v-if="showSelect" style="margin-right: 20upx;">
 								<uni-icons :type="item.checked ? 'checkbox-filled' : 'circle'" :color="item.checked ? '#007aff' : '#aaa'" size="24" />
 							</view>
-							<view class="uni-list-item__content">{{ item.name }}</view>
+							<view class="uni-list-item__content"><text class="contact-name">{{ item.name }}</text> <text class="phone-number">{{ item.phoneNumber }}</text></view>
 						</view>
 					</view>
 				</view>
@@ -64,6 +64,11 @@
 			this.setList()
 		},
 		methods: {
+			makePhoneCall(phoneNumber) {
+				uni.makePhoneCall({
+					phoneNumber
+				})
+			},
 			setList() {
 				let winHeight = uni.getSystemInfoSync().windowHeight
 				this.itemHeight = winHeight / this.options.length
@@ -81,6 +86,7 @@
 						// for (let key in item) {
 						obj['key'] = value.letter
 						obj['name'] = item
+						obj['phoneNumber'] = "17723558888"
 						// }
 						obj.checked = item.checked ? item.checked : false
 						return obj
@@ -146,6 +152,17 @@
 </script>
 <style>
 	@charset "UTF-8";
+	
+	.phone-number {
+		margin-left: 60rpx;
+	}
+	
+	.contact-name {
+		display: inline-block;
+		min-width: 240rpx;
+		max-width: 240rpx;
+		width: 240rpx;
+	}
 
 	.uni-list {
 		background-color: #fff;

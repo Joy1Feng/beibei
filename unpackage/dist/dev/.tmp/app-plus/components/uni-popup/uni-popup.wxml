@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['$emit',['onBarrierTap']]]]]}}" hidden="{{!(show)}}" class="popup-main" bindtap="__e"><view data-event-opts="{{[['tap',[['',['$event']]]]]}}" class="popup-content" catchtap="__e"><block wx:if="{{$slots.default}}"><slot></slot></block><block wx:else>{{''+msg+''}}</block></view></view>

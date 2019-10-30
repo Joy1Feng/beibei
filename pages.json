@@ -65,6 +65,12 @@
 			"style": {
 				"navigationBarTitleText": "更多"
 			}
+		},
+		{
+			"path": "pages/sub_page/wxjl/wxjl",
+			"style": {
+				"navigationBarTitleText": "维修记录"
+			}
 		}
 	],
 	"globalStyle": {

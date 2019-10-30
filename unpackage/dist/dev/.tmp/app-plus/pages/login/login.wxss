@@ -22,6 +22,5 @@
 	width: 160rpx;
 	height: 70rpx;
 	border-radius: 6rpx;
-	background-color: red;
 }
 
